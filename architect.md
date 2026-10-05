@@ -1,37 +1,28 @@
-# architect.md — 🛒 Odoo E-Ticaret Kurulum Rehberi (OCA Free Modüller) Mimari Referansı
+# architect.md — Odoo TR E-Ticaret Hedef Mimarisi
 
-Bu dosya projenin yapısının hızlı-referans özetidir. Kod değiştikçe güncel tutun.
-
-## Genel Bakış
-
-Bu rehber, **Odoo Community + OCA ücretsiz modülleri** kullanarak sıfırdan çalışan bir e-ticaret sistemi kurmanıza yardımcı olur. Eksik kalan kritik parçalar için **bu repodaki custom modüller** geliştirilmiştir. ---
-
-## Teknoloji Yığını
-
-- (belirlenemedi — dosya uzantılarına bakın)
-
-## Dizin Yapısı
+Kod henüz yok; bu dosya README'deki hedef mimariyi ve modül planını özetler.
 
 ```
-README.md
+Next.js / React frontend (sepet, sipariş, kullanıcı paneli)
+        │ REST (website_sale_rest_api + website_sale_jwt_auth) / JSON-RPC
+        ▼
+Odoo Community 18.0
+ ├─ OCA: e-commerce, sale-workflow, stock-logistics, (product-attribute, web…)
+ └─ Bu repo (planlanan):
+     ├─ Ödeme:  payment_iyzico (3D Secure, webhook, iade), payment_paytr, payment_stripe_tr
+     ├─ Kargo:  delivery_yurtici, delivery_aras, delivery_mng, delivery_ptt (barkod, etiket, takip)
+     ├─ SaaS:   saas_subscription (free/pro/enterprise), saas_quota, saas_api_key, saas_billing
+     └─ API:    website_sale_rest_api, website_sale_jwt_auth
 ```
 
-## Modüller / Kaynak Dosyalar
+## Kurulum Akışı (README "Hızlı Başlangıç")
 
-_(kaynak dosya bulunamadı)_
-
-## Giriş Noktaları ve Yapılandırma
-
-_(belirgin giriş noktası bulunamadı)_
-
-## Dağıtım / Çalışma Ortamı
-
-- GitHub: https://github.com/SHapeloglu/e-commerce
-
-## Diğer Dokümanlar
-
-- `README.md`
+1. OCB 18.0 klonla.
+2. `OCA/e-commerce` (18.0) ve bu repo `addons/` altına.
+3. `odoo.conf` → `addons_path`.
+4. `./odoo-bin -d <db> -i website_sale_product_assortment,website_sale_stock_available,payment_iyzico`.
 
 ## Mimari Kararlar
 
-_Önemli tasarım kararlarını ve gerekçelerini buraya ekleyin (ör. "X yerine Y seçildi çünkü ...")._
+- **OCA önce, custom sonra**: ihtiyacın ~%70'i OCA ile; sadece Türkiye'ye özgü boşluklar (yerel ödeme/kargo) ve SaaS/headless katmanı yazılacak.
+- **Headless seçeneği**: Odoo website yerine ayrı frontend; Odoo backend/ERP olarak kalır.

@@ -1,14 +1,11 @@
-# task.md — 🛒 Odoo E-Ticaret Kurulum Rehberi (OCA Free Modüller) Görev Takibi
-
-Bu dosya projedeki güncel görevleri takip etmek için kullanılır. Yeni bir göreve başlarken "Devam Eden"e taşı, bitirince "Tamamlanan"a taşı ve tarih ekle.
+# task.md — Odoo TR E-Ticaret Görevleri
 
 ## 🔜 Sıradaki
 
-- [ ] `CLAUDE.md` / `architect.md` içeriğini doğrula ve eksikleri tamamla
-- [ ] Repo kökünde `.gitignore` yok — `venv/`, `__pycache__/`, `.env`, build çıktıları için eklenmeli.
-- [ ] Otomatik test bulunamadı — kritik akışlar için en azından duman (smoke) testleri eklenmeli.
-
-> Uzun vadeli / önceliklendirilmemiş fikirler için bkz. `backlog.md`.
+- [ ] README'yi gerçeğe uyumla: modüller "planlanan" olarak işaretlensin, klon URL'si `SHapeloglu/e-commerce` olsun
+- [ ] İlk modül: `payment_iyzico` (18.0) — sandbox ile checkout form, 3D Secure dönüşü, webhook, iade
+  - Kabul: test kartıyla `website_sale` siparişi ödeniyor, `payment.transaction` `done` oluyor, iade Odoo'dan tetiklenebiliyor.
+- [ ] Modül iskeleti için ortak şablon + pre-commit (OCA `oca-addons-repo-template`)
 
 ## 🚧 Devam Eden
 
@@ -16,15 +13,5 @@ _(şu anda boş)_
 
 ## ✅ Tamamlanan
 
-- [x] 2026-10-05 — Proje çalışma dosyaları oluşturuldu
-
----
-
-### Görev Ekleme Şablonu
-
-```markdown
-- [ ] Kısa görev başlığı
-  - Bağlam: neden yapılıyor
-  - Kabul kriteri: ne zaman "bitti" sayılır
-  - İlgili dosyalar: ...
-```
+- [x] 2026-10-05 — Çalışma dosyaları README okunarak yeniden yazıldı
+- [x] 2026-06-29 — Kurulum rehberi ve modül planı (README) yüklendi
